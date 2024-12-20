@@ -210,39 +210,69 @@
         </div>
 
         <div class="welcome-screen">
-            <input type="text" id="userName" placeholder="Digite seu nome">
-            <button id="startButton" class="btn">Iniciar Quiz</button>
+            <label id="nameInstruction">Digite seu nome para começar:</label>
+            <input type="text" id="userName" />
+            <button id="startQuizBtn" onclick="startQuiz()">Iniciar Quiz</button>
         </div>
 
-        <div class="quiz-container">
-            <div class="timer">
-                Tempo: <span id="time">00:00:00</span>
-                <button id="pauseTimer" class="btn">Pausar</button>
-            </div>
+        <div class="quiz-container" style="display: none;">
             <div class="question"></div>
             <div class="options"></div>
-            <div class="feedback"></div>
-            <div class="controls">
-                <button class="btn next-button" onclick="nextQuestion()" style="display: none;">Próxima Pergunta</button>
-            </div>
+            <div class="feedback" style="display: none;"></div>
+            <button class="next-button" style="display: none;" onclick="nextQuestion()">Próxima</button>
         </div>
+      </div>
     </div>
 
     <script>
         // Função para iniciar o quiz
-        function startQuiz() {
-            const userName = document.getElementById("userName").value.trim();
-            if (userName === "") {
-                alert("Por favor, insira seu nome!");
-                return;
-            }
-            document.querySelector('.welcome-screen').style.display = 'none';
-            document.querySelector('.quiz-container').style.display = 'block';
-            document.querySelector('.name-display').innerText = `Bem-vindo(a), ${userName}!`;
-        }
+       
+O código que você forneceu está quase completo, mas o botão de "Iniciar Quiz" não está funcionando porque a função startQuiz() não está sendo chamada corretamente. Isso pode ocorrer se o evento de clique do botão não estiver configurado ou se o botão não estiver presente no HTML.
+
+Aqui está uma verificação e algumas correções para garantir que o botão funcione corretamente:
+
+Verifique o HTML: O botão de "Iniciar Quiz" precisa de um evento de clique configurado para chamar a função startQuiz(). Certifique-se de que o botão tenha um id ou onclick correto. Aqui está um exemplo de como isso deve ser feito:
+html
+Copiar código
+<button id="startQuizBtn" onclick="startQuiz()">Iniciar Quiz</button>
+Verifique a exibição das telas: O código de exibição do quiz depende da estrutura HTML correta, onde a tela inicial (.welcome-screen) é escondida e a tela do quiz (.quiz-container) é exibida. Certifique-se de que os elementos estejam presentes no HTML:
+html
+Copiar código
+<div class="welcome-screen">
+    <label id="nameInstruction">Digite seu nome para começar:</label>
+    <input type="text" id="userName" />
+    <button id="startQuizBtn" onclick="startQuiz()">Iniciar Quiz</button>
+</div>
+
+<div class="quiz-container" style="display: none;">
+    <div class="question"></div>
+    <div class="options"></div>
+    <div class="feedback" style="display: none;"></div>
+    <button class="next-button" style="display: none;" onclick="nextQuestion()">Próxima</button>
+</div>
+
+function startQuiz() {
+    userName = document.getElementById("userName").value;
+    if (!userName) {
+        alert("Por favor, digite seu nome para começar!");
+        return;
+    }
+
+    // Esconder a tela inicial e mostrar o quiz
+    document.getElementById("nameInstruction").style.display = "none";
+    document.querySelector(".welcome-screen").style.display = "none";
+    document.querySelector(".quiz-container").style.display = "block";
+
+    shuffleQuestions();
+    startTimer();
+    showQuestion();
+    }
 
         document.getElementById("startButton").addEventListener("click", startQuiz);
     </script>
+    
+    </body>
+    </html>
 
     <script>
         const questions = [
