@@ -24,8 +24,9 @@
             height: auto;
             margin-bottom: 20px;
         }
+        <style>
         .container {
-            width: 100%; 
+            width: 100%;
             max-width: 1200px; 
             margin: 0 auto;
             background: #1a1a1a;
@@ -34,19 +35,22 @@
             box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
         }
         
-        @media (max-width: 1024px) { /* Ajuste para tablets */
+        /* Ajustes para telas médias (tablets) */
+        @media (max-width: 1024px) {
             .container {
-                width: 100%; 
+                max-width: 90%;
                 padding: 15px;
             }
         }
         
-        @media (max-width: 600px) { /* Ajuste para celulares */
+        /* Ajustes para telas pequenas (celulares) */
+        @media (max-width: 600px) {
             .container {
-                width: 100%;
+                max-width: 95%; 
                 padding: 10px;
             }
         }
+        </style>
 
         .welcome-screen {
             text-align: center;
