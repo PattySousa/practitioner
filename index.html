@@ -55,6 +55,10 @@
             box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
         }
 
+        .question, .options, .option {
+            font-size: 1rem; 
+        }
+
         /* Ajustes para telas médias (tablets) */
         @media (max-width: 1024px) {
             .container {
@@ -78,8 +82,14 @@
             #userName {
                 width: 100%;  
             }
+
+            .question, .options, .option {
+                font-size: 1rem; 
+    }
         }
 
+        /* continuação do código */
+        
         .welcome-screen {
             text-align: center;
         }
@@ -226,18 +236,6 @@
 
     <script>
         // Função para iniciar o quiz
-       
-O código que você forneceu está quase completo, mas o botão de "Iniciar Quiz" não está funcionando porque a função startQuiz() não está sendo chamada corretamente. Isso pode ocorrer se o evento de clique do botão não estiver configurado ou se o botão não estiver presente no HTML.
-
-Aqui está uma verificação e algumas correções para garantir que o botão funcione corretamente:
-
-Verifique o HTML: O botão de "Iniciar Quiz" precisa de um evento de clique configurado para chamar a função startQuiz(). Certifique-se de que o botão tenha um id ou onclick correto. Aqui está um exemplo de como isso deve ser feito:
-html
-Copiar código
-<button id="startQuizBtn" onclick="startQuiz()">Iniciar Quiz</button>
-Verifique a exibição das telas: O código de exibição do quiz depende da estrutura HTML correta, onde a tela inicial (.welcome-screen) é escondida e a tela do quiz (.quiz-container) é exibida. Certifique-se de que os elementos estejam presentes no HTML:
-html
-Copiar código
 <div class="welcome-screen">
     <label id="nameInstruction">Digite seu nome para começar:</label>
     <input type="text" id="userName" />
@@ -1512,3 +1510,5 @@ function startQuiz() {
     </script>
 </body>
 </html>
+
+        /* Desenvolvido por Patrícia Sousa */  
