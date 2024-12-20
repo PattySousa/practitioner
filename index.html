@@ -68,12 +68,21 @@
 
         .option {
             padding: 10px;
+             margin: 5px 0;
             border: 1px solid yellow;
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s;
             color: yellow;
             background: black;
+        }
+
+        .option.correct {
+            background-color: #c8e6c9;
+        }
+        
+        .option.incorrect {
+            background-color: #ffcdd2;
         }
 
         .option:hover {
@@ -159,7 +168,12 @@
             .question, .options, .option {
                 font-size: 1rem;
             }
+
+            .quiz-container {
+                 font-size: 14px;
+            }
         }
+        
     </style>
 </head>
 <body>
@@ -194,9 +208,7 @@
 </body>
 </html>
 
-<body>
-<html>
-    <script>
+<script src="script.js">
         const questions = [
             {
                 question: "Qual serviço da AWS permite o gerenciamento automático de patches e atualizações de segurança em instâncias EC2?",
@@ -1253,160 +1265,157 @@
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
-}
-
-let currentQuestion = 0;
-let score = 0;
-let userName = "";
-let timer;
-let seconds = 0;
-let timerPaused = false;
-let shuffledQuestions = [];
-
-function shuffleQuestions() {
-    shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
-}
-
-function startQuiz() {
-    userName = document.getElementById("userName").value;
-    if (!userName) {
-        alert("Por favor, digite seu nome para começar!");
-        return;
-    }
-
-    document.getElementById("nameInstruction").style.display = "none";
-    shuffleQuestions();
-    document.querySelector(".welcome-screen").style.display = "none";
-    document.querySelector(".quiz-container").style.display = "block";
-    resetTimer();
-    startTimer();
-    showQuestion();
-}
-
-function startTimer() {
-    timer = setInterval(() => {
-        if (!timerPaused) {
-            seconds++;
-            const h = Math.floor(seconds / 3600);
-            const m = Math.floor((seconds % 3600) / 60);
-            const s = seconds % 60;
-            document.getElementById("time").textContent = 
-                `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
         }
-    }, 1000);
-}
-
-function resetTimer() {
-    clearInterval(timer);
-    seconds = 0;
-    document.getElementById("time").textContent = "00:00:00";
-}
-
-function showQuestion() {
-    const questionData = shuffledQuestions[currentQuestion];
-    const instruction = questionData.multiSelect ? 
-        '<p class="question-instruction">(Selecione DUAS opções corretas)</p>' : '';
-
-    document.querySelector(".question").innerHTML = 
-        `<h2>Questão ${currentQuestion + 1} de ${shuffledQuestions.length}</h2>
-         <p>${questionData.question}</p>
-         ${instruction}`;
-
-    let optionsHtml = questionData.options
-        .map((option, index) => 
-            `<div class="option" onclick="selectOption(${index})">${option}</div>`)
-        .join("");
-
-    document.querySelector(".options").innerHTML = optionsHtml;
-    document.querySelector(".feedback").style.display = "none";
-    document.querySelector(".next-button").style.display = "none";
-}
-
-function selectOption(optionIndex) {
-    const options = document.querySelectorAll(".option");
-    const questionData = shuffledQuestions[currentQuestion];
-
-    options.forEach(option => {
-        option.classList.remove("selected", "correct", "incorrect");
-        option.onclick = null;
-    });
-
-    const selectedOption = options[optionIndex];
-    selectedOption.classList.add("selected");
-
-    if (optionIndex === questionData.correct) {
-        selectedOption.classList.add("correct");
-        score += 10;
-    } else {
-        selectedOption.classList.add("incorrect");
-        options[questionData.correct].classList.add("correct");
-    }
-
-    const feedback = document.querySelector(".feedback");
-    feedback.innerHTML = questionData.explanation;
-    feedback.style.display = "block";
-
-    document.querySelector(".next-button").style.display = "block";
-}
-
-function nextQuestion() {
-    currentQuestion++;
-    if (currentQuestion < shuffledQuestions.length) {
-        showQuestion();
-    } else {
-        endQuiz();
-    }
-}
-
-function endQuiz() {
-    clearInterval(timer);
-    const feedbackMessage = score > 80 ? "Excelente!" : score > 50 ? "Bom trabalho!" : "Continue praticando, você conseguirá!";
-    document.querySelector(".quiz-container").innerHTML = `
-        <h2>Parabéns, ${userName}!</h2>
-        <p>${feedbackMessage}</p>
-        <p>Pontuação: ${score} de ${shuffledQuestions.length * 10}</p>
-        <p>Tempo total: ${document.getElementById("time").textContent}</p>
-        <button onclick="restartQuiz()" class="btn">Recomeçar</button>
-    `;
-}
-
-document.getElementById("pauseTimer").addEventListener("click", function() {
-    timerPaused = !timerPaused;
-    this.textContent = timerPaused ? "Continuar" : "Pausar";
-});
-
-function restartQuiz() {
-    currentQuestion = 0;
-    score = 0;
-    resetTimer();
-    document.querySelector(".quiz-container").innerHTML = "";
-    document.querySelector(".welcome-screen").style.display = "block";
-}
-
-function validateQuestion(question) {
-    if (!question.question || !question.options || question.correct === undefined) {
-        console.error("Questão inválida:", question);
-        return false;
-    }
-    return true;
-}
-
-function updateScore(newScore) {
-    score = newScore;
-    document.querySelector(".current-score").textContent = `Pontuação Atual: ${score}`;
-}
-
-function addHint(hint) {
-    const hintElement = document.querySelector(".hint");
-    hintElement.textContent = hint;
-    hintElement.style.display = "block";
-}
-
-
+        
+        let currentQuestion = 0;
+        let score = 0;
+        let userName = "";
+        let timer;
+        let seconds = 0;
+        let timerPaused = false;
+        let shuffledQuestions = [];
+        
+        function shuffleQuestions() {
+            shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
+        }
+        
+        function startQuiz() {
+            userName = document.getElementById("userName").value;
+            if (!userName) {
+                alert("Por favor, digite seu nome para começar!");
+                return;
+            }
+        
+            document.getElementById("nameInstruction").style.display = "none";
+            shuffleQuestions();
+            document.querySelector(".welcome-screen").style.display = "none";
+            document.querySelector(".quiz-container").style.display = "block";
+            resetTimer();
+            startTimer();
+            showQuestion();
+        }
+        
+        function startTimer() {
+            timer = setInterval(() => {
+                if (!timerPaused) {
+                    seconds++;
+                    const h = Math.floor(seconds / 3600);
+                    const m = Math.floor((seconds % 3600) / 60);
+                    const s = seconds % 60;
+                    document.getElementById("time").textContent = 
+                        `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                }
+            }, 1000);
+        }
+        
+        function resetTimer() {
+            clearInterval(timer);
+            seconds = 0;
+            document.getElementById("time").textContent = "00:00:00";
+        }
+        
+        function showQuestion() {
+            const questionData = shuffledQuestions[currentQuestion];
+            const instruction = questionData.multiSelect ? 
+                '<p class="question-instruction">(Selecione DUAS opções corretas)</p>' : '';
+        
+            document.querySelector(".question").innerHTML = 
+                `<h2>Questão ${currentQuestion + 1} de ${shuffledQuestions.length}</h2>
+                 <p>${questionData.question}</p>
+                 ${instruction}`;
+        
+            let optionsHtml = questionData.options
+                .map((option, index) => 
+                    `<div class="option" onclick="selectOption(${index})">${option}</div>`)
+                .join("");
+        
+            document.querySelector(".options").innerHTML = optionsHtml;
+            document.querySelector(".feedback").style.display = "none";
+            document.querySelector(".next-button").style.display = "none";
+        }
+        
+        function selectOption(optionIndex) {
+            const options = document.querySelectorAll(".option");
+            const questionData = shuffledQuestions[currentQuestion];
+        
+            options.forEach(option => {
+                option.classList.remove("selected", "correct", "incorrect");
+                option.onclick = null;
+            });
+        
+            const selectedOption = options[optionIndex];
+            selectedOption.classList.add("selected");
+        
+            if (optionIndex === questionData.correct) {
+                selectedOption.classList.add("correct");
+                score += 10;
+            } else {
+                selectedOption.classList.add("incorrect");
+                options[questionData.correct].classList.add("correct");
+            }
+        
+            const feedback = document.querySelector(".feedback");
+            feedback.innerHTML = questionData.explanation;
+            feedback.style.display = "block";
+        
+            document.querySelector(".next-button").style.display = "block";
+        }
+        
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < shuffledQuestions.length) {
+                showQuestion();
+            } else {
+                endQuiz();
+            }
+        }
+        
+        function endQuiz() {
+            clearInterval(timer);
+            const feedbackMessage = score > 80 ? "Excelente!" : score > 50 ? "Bom trabalho!" : "Continue praticando, você conseguirá!";
+            document.querySelector(".quiz-container").innerHTML = `
+                <h2>Parabéns, ${userName}!</h2>
+                <p>${feedbackMessage}</p>
+                <p>Pontuação: ${score} de ${shuffledQuestions.length * 10}</p>
+                <p>Tempo total: ${document.getElementById("time").textContent}</p>
+                <button onclick="restartQuiz()" class="btn">Recomeçar</button>
+            `;
+        }
+        
+        document.getElementById("pauseTimer").addEventListener("click", function() {
+            timerPaused = !timerPaused;
+            this.textContent = timerPaused ? "Continuar" : "Pausar";
+        });
+        
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            resetTimer();
+            document.querySelector(".quiz-container").innerHTML = "";
+            document.querySelector(".welcome-screen").style.display = "block";
+        }
+        
+        function validateQuestion(question) {
+            if (!question.question || !question.options || question.correct === undefined) {
+                console.error("Questão inválida:", question);
+                return false;
+            }
+            return true;
+        }
+        
+        function updateScore(newScore) {
+            score = newScore;
+            document.querySelector(".current-score").textContent = `Pontuação Atual: ${score}`;
+        }
+        
+        function addHint(hint) {
+            const hintElement = document.querySelector(".hint");
+            hintElement.textContent = hint;
+            hintElement.style.display = "block";
+        }
 
         /* Desenvolvido por Patrícia Sousa */ 
-    </script>
-</body>
-</html>
+</script>
+
 
         
