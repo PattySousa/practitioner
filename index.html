@@ -25,28 +25,29 @@
             margin-bottom: 20px;
         }
         .container {
-            max-width: 800px;
+            width: 100%; 
+            max-width: 1200px; 
             margin: 0 auto;
             background: #1a1a1a;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
         }
-
-          @media (max-width: 1024px) { /* Ajuste para tablets */
+        
+        @media (max-width: 1024px) { /* Ajuste para tablets */
             .container {
-                max-width: 90%;
+                width: 100%; 
                 padding: 15px;
             }
         }
+        
         @media (max-width: 600px) { /* Ajuste para celulares */
             .container {
-                max-width: 95%;
+                width: 100%;
                 padding: 10px;
             }
         }
 
-        
         .welcome-screen {
             text-align: center;
         }
