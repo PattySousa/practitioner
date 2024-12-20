@@ -12,7 +12,7 @@
         }
 
         html {
-            font-size: 16px; 
+            font-size: 16px;
         }
 
         body {
@@ -21,7 +21,7 @@
             padding: 20px;
             background: black;
             color: yellow;
-            font-size: 1rem; 
+            font-size: 1rem;
         }
 
         .header {
@@ -38,16 +38,9 @@
             margin-bottom: 20px;
         }
 
-        .name-display {
-            font-size: 18px;
-            font-weight: bold;
-            color: yellow;
-            margin-top: 10px;
-        }
-
         .container {
             width: 100%;
-            max-width: 1200px; 
+            max-width: 1200px;
             margin: 0 auto;
             background: #1a1a1a;
             padding: 20px;
@@ -55,41 +48,6 @@
             box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
         }
 
-        .question, .options, .option {
-            font-size: 1rem; 
-        }
-
-        /* Ajustes para telas médias (tablets) */
-        @media (max-width: 1024px) {
-            .container {
-                max-width: 90%;
-                padding: 15px;
-            }
-        }
-
-        /* Ajustes para telas pequenas (celulares) */
-        @media (max-width: 600px) {
-            .container {
-                max-width: 90%; 
-                padding: 10px;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 12px 20px;
-            }
-            
-            #userName {
-                width: 100%;  
-            }
-
-            .question, .options, .option {
-                font-size: 1rem; 
-    }
-        }
-
-        /* continuação do código */
-        
         .welcome-screen {
             text-align: center;
         }
@@ -100,13 +58,12 @@
 
         .question {
             margin-bottom: 20px;
-            font-size: 1.125rem; 
+            font-size: 1.125rem;
         }
 
         .options {
             display: grid;
             gap: 10px;
-            font-size: 1rem; 
         }
 
         .option {
@@ -117,26 +74,10 @@
             transition: background-color 0.3s;
             color: yellow;
             background: black;
-            font-size: 1rem; 
         }
 
         .option:hover {
             background-color: #333;
-        }
-
-        .selected {
-            background-color: #444;
-            border: 2px solid yellow;
-        }
-
-        .correct {
-            background-color: #006400;
-            color: white;
-        }
-
-        .incorrect {
-            background-color: #8b0000;
-            color: white;
         }
 
         .feedback {
@@ -145,8 +86,7 @@
             border-radius: 4px;
             display: none;
             color: yellow;
-            background-color: #1e90ff30; 
-            font-size: 1rem; 
+            background-color: #1e90ff30;
         }
 
         .timer {
@@ -168,8 +108,7 @@
             cursor: pointer;
             background-color: black;
             color: yellow;
-            font-size: 1rem; 
-            width: 100%; 
+            font-size: 1rem;
         }
 
         .btn:hover {
@@ -186,12 +125,6 @@
 
         #userName::placeholder {
             color: #888;
-        }
-
-        .question-instruction {
-            color: yellow;
-            font-style: italic;
-            margin-bottom: 10px;
         }
 
         .footer {
@@ -211,72 +144,55 @@
             color: red;
             text-decoration: underline;
         }
-        
+
+        @media (max-width: 600px) {
+            .container {
+                max-width: 90%;
+                padding: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 12px 20px;
+            }
+
+            .question, .options, .option {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="imagem/logo practitioner.png" alt="Logo Practitioner" class="logo">
-            <br><br>
-            <p style="color: yellow;">Desenvolvido por <a href="https://www.linkedin.com/in/patricia--sousa" target="_blank" class="nome-vermelho">Patrícia Sousa</a></p>
-            <p style="text-align: center; font-size: 14px; color: white;">
-                  Ⓒ 2024 - All Rights Reserved
-            </p>  
+            <img src="imagem/logo-practitioner.png" alt="Logo Practitioner" class="logo">
+            <p>Desenvolvido por <a href="https://www.linkedin.com/in/patricia--sousa" target="_blank" class="nome-vermelho">Patrícia Sousa</a></p>
+            <p>Ⓒ 2024 - All Rights Reserved</p>
         </div>
 
         <div class="welcome-screen">
-            <label id="nameInstruction">Digite seu nome para começar:</label>
-            <input type="text" id="userName" />
-            <button id="startQuizBtn" onclick="startQuiz()">Iniciar Quiz</button>
+            <label for="userName">Digite seu nome para começar:</label>
+            <input type="text" id="userName" placeholder="Seu nome" />
+            <button id="startQuizBtn" class="btn" onclick="startQuiz()">Iniciar Quiz</button>
         </div>
 
-        <div class="quiz-container" style="display: none;">
+        <div class="quiz-container">
+            <div class="timer">Tempo restante: <span id="timeRemaining">60</span> segundos</div>
             <div class="question"></div>
             <div class="options"></div>
-            <div class="feedback" style="display: none;"></div>
-            <button class="next-button" style="display: none;" onclick="nextQuestion()">Próxima</button>
+            <div class="feedback"></div>
+            <div class="controls">
+                <button class="btn" id="pauseBtn" onclick="pauseTimer()">Pausar</button>
+                <button class="btn next-button" style="display: none;" onclick="nextQuestion()">Próxima</button>
+            </div>
         </div>
-      </div>
+
+        <div class="footer">
+            <p>Boa sorte!</p>
+        </div>
     </div>
-
-    <script>
-        // Função para iniciar o quiz
-<div class="welcome-screen">
-    <label id="nameInstruction">Digite seu nome para começar:</label>
-    <input type="text" id="userName" />
-    <button id="startQuizBtn" onclick="startQuiz()">Iniciar Quiz</button>
-</div>
-
-<div class="quiz-container" style="display: none;">
-    <div class="question"></div>
-    <div class="options"></div>
-    <div class="feedback" style="display: none;"></div>
-    <button class="next-button" style="display: none;" onclick="nextQuestion()">Próxima</button>
-</div>
-
-function startQuiz() {
-    userName = document.getElementById("userName").value;
-    if (!userName) {
-        alert("Por favor, digite seu nome para começar!");
-        return;
-    }
-
-    // Esconder a tela inicial e mostrar o quiz
-    document.getElementById("nameInstruction").style.display = "none";
-    document.querySelector(".welcome-screen").style.display = "none";
-    document.querySelector(".quiz-container").style.display = "block";
-
-    shuffleQuestions();
-    startTimer();
-    showQuestion();
-    }
-
-        document.getElementById("startButton").addEventListener("click", startQuiz);
-    </script>
-    
-    </body>
-    </html>
+</body>
+</html>
 
     <script>
         const questions = [
@@ -1330,216 +1246,164 @@ function startQuiz() {
         ];
 
         function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+let currentQuestion = 0;
+let score = 0;
+let userName = "";
+let timer;
+let seconds = 0;
+let timerPaused = false;
+let shuffledQuestions = [];
+
+function shuffleQuestions() {
+    shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
+}
+
+function startQuiz() {
+    userName = document.getElementById("userName").value;
+    if (!userName) {
+        alert("Por favor, digite seu nome para começar!");
+        return;
+    }
+
+    document.getElementById("nameInstruction").style.display = "none";
+    shuffleQuestions();
+    document.querySelector(".welcome-screen").style.display = "none";
+    document.querySelector(".quiz-container").style.display = "block";
+    resetTimer();
+    startTimer();
+    showQuestion();
+}
+
+function startTimer() {
+    timer = setInterval(() => {
+        if (!timerPaused) {
+            seconds++;
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = seconds % 60;
+            document.getElementById("time").textContent = 
+                `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
         }
+    }, 1000);
+}
 
-        let currentQuestion = 0;
-        let score = 0;
-        let userName = "";
-        let timer;
-        let seconds = 0;
-        let timerPaused = false;
-        let shuffledQuestions = [];
+function resetTimer() {
+    clearInterval(timer);
+    seconds = 0;
+    document.getElementById("time").textContent = "00:00:00";
+}
 
-        function shuffleQuestions() {
-            shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
-        }
+function showQuestion() {
+    const questionData = shuffledQuestions[currentQuestion];
+    const instruction = questionData.multiSelect ? 
+        '<p class="question-instruction">(Selecione DUAS opções corretas)</p>' : '';
 
-        function startQuiz() {
-            userName = document.getElementById("userName").value;
-            if (!userName) {
-                alert("Por favor, digite seu nome para começar!");
-                return;
-            }
-            
-            document.getElementById("nameInstruction").style.display = "none";
-            shuffleQuestions();
-            document.querySelector(".welcome-screen").style.display = "none";
-            document.querySelector(".quiz-container").style.display = "block";
-            resetTimer();
-            startTimer();
-            showQuestion();
-        }
+    document.querySelector(".question").innerHTML = 
+        `<h2>Questão ${currentQuestion + 1} de ${shuffledQuestions.length}</h2>
+         <p>${questionData.question}</p>
+         ${instruction}`;
 
-        function startTimer() {
-            timer = setInterval(() => {
-                if (!timerPaused) {
-                    seconds++;
-                    const h = Math.floor(seconds / 3600);
-                    const m = Math.floor((seconds % 3600) / 60);
-                    const s = seconds % 60;
-                    document.getElementById("time").textContent = 
-                        `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-                }
-            }, 1000);
-        }
+    let optionsHtml = questionData.options
+        .map((option, index) => 
+            `<div class="option" onclick="selectOption(${index})">${option}</div>`)
+        .join("");
 
-        function resetTimer() {
-            clearInterval(timer);
-            seconds = 0;
-            document.getElementById("time").textContent = "00:00:00";
-        }
+    document.querySelector(".options").innerHTML = optionsHtml;
+    document.querySelector(".feedback").style.display = "none";
+    document.querySelector(".next-button").style.display = "none";
+}
 
-        function showQuestion() {
-            const questionData = shuffledQuestions[currentQuestion];
-            const instruction = questionData.multiSelect ? 
-                '<p class="question-instruction">(Selecione DUAS opções corretas)</p>' : '';
-            
-            document.querySelector(".question").innerHTML = 
-                `<h2>Questão ${currentQuestion + 1} de ${shuffledQuestions.length}</h2>
-                 <p>${questionData.question}</p>
-                 ${instruction}`;
-            
-            // Create array of options with their correct/incorrect status
-            let optionsWithStatus = questionData.options.map((option, index) => ({
-                text: option,
-                isCorrect: questionData.multiSelect ? 
-                    questionData.correct.includes(index) : 
-                    index === questionData.correct
-            }));
-            
-            // Shuffle options
-            optionsWithStatus = shuffleArray(optionsWithStatus);
-            
-            
-            if (!questionData.multiSelect) {
-                questionData.correct = optionsWithStatus
-                    .map((opt, idx) => opt.isCorrect ? idx : -1)
-                    .filter(idx => idx !== -1);              
-            } else {
-                questionData.correct = optionsWithStatus
-                    .map((opt, idx) => opt.isCorrect ? idx : -1)
-                    .filter(idx => idx !== -1);
-            }
-            
-            const optionsHtml = optionsWithStatus
-                .map((option, index) => 
-                    `<div class="option" onclick="selectOption(${index})">${option.text}</div>`)
-                .join("");
-            
-            document.querySelector(".options").innerHTML = optionsHtml;
-            document.querySelector(".feedback").style.display = "none";
-            document.querySelector(".next-button").style.display = "none";
-        }
+function selectOption(optionIndex) {
+    const options = document.querySelectorAll(".option");
+    const questionData = shuffledQuestions[currentQuestion];
 
-        function selectOption(optionIndex) {
-            const options = document.querySelectorAll(".option");
-            const questionData = shuffledQuestions[currentQuestion];
-            
-            if (questionData.multiSelect) {
-                const selectedOption = options[optionIndex];
-              
-            if (selectedCount >= 2 && !selectedOption.classList.contains("selected")) {
-                return; 
-                }
-                    
-                }
-                
-                if (document.querySelectorAll(".option.selected").length === 2) {
-                    const selectedIndices = Array.from(options)
-                        .map((opt, idx) => opt.classList.contains("selected") ? idx : -1)
-                        .filter(idx => idx !== -1);
-                    
-                    const correct = questionData.correct.every(i => selectedIndices.includes(i)) &&
-                                  selectedIndices.every(i => questionData.correct.includes(i));
-                    
-                    options.forEach((option, idx) => {
-                        option.onclick = null;
-                        if (questionData.correct.includes(idx)) {
-                            option.classList.add("correct");
-                        }
-                        if (selectedIndices.includes(idx) && !questionData.correct.includes(idx)) {
-                            option.classList.add("incorrect");
-                        }
-                    });
-                    
-                    if (correct) {
-                        score += 10;
-                    }
-                    
-                    const feedback = document.querySelector(".feedback");
-                    feedback.innerHTML = questionData.explanation;
-                    feedback.style.display = "block";
-                    
-                    document.querySelector(".next-button").style.display = "block";
-                }
-                } else {
-                options.forEach(option => {
-                    option.classList.remove("selected", "correct", "incorrect");
-                    option.onclick = null;
-                });
+    options.forEach(option => {
+        option.classList.remove("selected", "correct", "incorrect");
+        option.onclick = null;
+    });
 
-                const selectedOption = options[optionIndex];
-                selectedOption.classList.add("selected");
+    const selectedOption = options[optionIndex];
+    selectedOption.classList.add("selected");
 
-                if (optionIndex === questionData.correct) {
-                    selectedOption.classList.add("correct");
-                    score += 10;
-                } else {
-                    selectedOption.classList.add("incorrect");
-                    options[questionData.correct].classList.add("correct");
-                }
+    if (optionIndex === questionData.correct) {
+        selectedOption.classList.add("correct");
+        score += 10;
+    } else {
+        selectedOption.classList.add("incorrect");
+        options[questionData.correct].classList.add("correct");
+    }
 
-                const feedback = document.querySelector(".feedback");
-                feedback.innerHTML = questionData.explanation;
-                feedback.style.display = "block";
-                
-                document.querySelector(".next-button").style.display = "block";
-            }
-        }
+    const feedback = document.querySelector(".feedback");
+    feedback.innerHTML = questionData.explanation;
+    feedback.style.display = "block";
 
-        function nextQuestion() {
-            currentQuestion++;
-            if (currentQuestion < shuffledQuestions.length) {
-                showQuestion();
-            } else {
-                endQuiz();
-            }
-        }
+    document.querySelector(".next-button").style.display = "block";
+}
 
-       function endQuiz() {
-            clearInterval(timer);
-            let feedbackMessage = score > 80 ? "Excelente!" : score > 50 ? "Bom trabalho!" : "Continue praticando, você conseguirá!";
-            document.querySelector(".quiz-container").innerHTML = `
-                <h2>Parabéns, ${userName}!</h2>
-                <p>${feedbackMessage}</p>
-                <p>Pontuação: ${score} de ${shuffledQuestions.length * 10}</p>
-                <p>Tempo total: ${document.getElementById("time").textContent}</p>
-                <button onclick="restartQuiz()" class="btn">Recomeçar</button>
-            `;
-        }
+function nextQuestion() {
+    currentQuestion++;
+    if (currentQuestion < shuffledQuestions.length) {
+        showQuestion();
+    } else {
+        endQuiz();
+    }
+}
 
+function endQuiz() {
+    clearInterval(timer);
+    const feedbackMessage = score > 80 ? "Excelente!" : score > 50 ? "Bom trabalho!" : "Continue praticando, você conseguirá!";
+    document.querySelector(".quiz-container").innerHTML = `
+        <h2>Parabéns, ${userName}!</h2>
+        <p>${feedbackMessage}</p>
+        <p>Pontuação: ${score} de ${shuffledQuestions.length * 10}</p>
+        <p>Tempo total: ${document.getElementById("time").textContent}</p>
+        <button onclick="restartQuiz()" class="btn">Recomeçar</button>
+    `;
+}
 
-        document.getElementById("pauseTimer").addEventListener("click", function() {
-            timerPaused = !timerPaused;
-            this.textContent = timerPaused ? "Continuar" : "Pausar";
-        });
+document.getElementById("pauseTimer").addEventListener("click", function() {
+    timerPaused = !timerPaused;
+    this.textContent = timerPaused ? "Continuar" : "Pausar";
+});
 
-        function restartQuiz() {
-            currentQuestion = 0;
-            score = 0;
-            resetTimer();
-            document.querySelector(".quiz-container").innerHTML = "";
-            document.querySelector(".welcome-screen").style.display = "block";
-        }
+function restartQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    resetTimer();
+    document.querySelector(".quiz-container").innerHTML = "";
+    document.querySelector(".welcome-screen").style.display = "block";
+}
 
-        function validateQuestion(question) {
-            if (!question.question || !question.options || question.correct === undefined) {
-            console.error("Questão inválida:", question);
-            return false;
-        }
-            return true;
-        }
+function validateQuestion(question) {
+    if (!question.question || !question.options || question.correct === undefined) {
+        console.error("Questão inválida:", question);
+        return false;
+    }
+    return true;
+}
+
+function updateScore(newScore) {
+    score = newScore;
+    document.querySelector(".current-score").textContent = `Pontuação Atual: ${score}`;
+}
+
+function addHint(hint) {
+    const hintElement = document.querySelector(".hint");
+    hintElement.textContent = hint;
+    hintElement.style.display = "block";
+}
 
 
 
         /* Desenvolvido por Patrícia Sousa */ 
     </script>
-</body>  
-</html>
+
 
         
