@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWS Cloud Practitioner Quiz</title>
     <style>
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        
         html {
             font-size: 16px; 
         }
@@ -230,15 +228,26 @@
             </div>
         </div>
     </div>
+
+    <!-- Certifique-se de que o código JavaScript está aqui, antes de fechar a tag body -->
     <script>
         // Função para iniciar o quiz
         function startQuiz() {
+            // Certificando-se de que o nome foi inserido
+            const userName = document.getElementById('userName').value;
+            if (userName.trim() === '') {
+                alert('Por favor, insira seu nome!');
+                return;
+            }
+
+            // Exibindo a tela do quiz e ocultando a tela de boas-vindas
             document.querySelector('.welcome-screen').style.display = 'none';
             document.querySelector('.quiz-container').style.display = 'block';
         }
     </script>
 </body>
 </html>
+
 
     <script>
         const questions = [
