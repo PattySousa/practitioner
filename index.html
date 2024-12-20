@@ -2,15 +2,28 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWS Cloud Practitioner Quiz</title>
     <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        html {
+            font-size: 16px; 
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
             background: black;
             color: yellow;
-            font-size: 16px; 
+            font-size: 1rem; 
         }
 
         .header {
@@ -72,13 +85,13 @@
 
         .question {
             margin-bottom: 20px;
-            font-size: 18px; 
+            font-size: 1.125rem; 
         }
 
         .options {
             display: grid;
             gap: 10px;
-            font-size: 16px; 
+            font-size: 1rem; 
         }
 
         .option {
@@ -89,7 +102,7 @@
             transition: background-color 0.3s;
             color: yellow;
             background: black;
-            font-size: 16px; 
+            font-size: 1rem; 
         }
 
         .option:hover {
@@ -118,11 +131,11 @@
             display: none;
             color: yellow;
             background-color: #1e90ff30; 
-            font-size: 16px; 
+            font-size: 1rem; 
         }
 
         .timer {
-            font-size: 20px;
+            font-size: 1.25rem; 
             text-align: center;
             margin: 10px 0;
         }
@@ -140,7 +153,7 @@
             cursor: pointer;
             background-color: black;
             color: yellow;
-            font-size: 16px;
+            font-size: 1rem; 
             width: 100%; 
         }
 
@@ -164,6 +177,20 @@
             color: yellow;
             font-style: italic;
             margin-bottom: 10px;
+        }
+
+        /* Estilo para o link no footer */
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: yellow;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        .footer a {
+            color: yellow;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -192,6 +219,10 @@
                 <button class="btn next-button" onclick="nextQuestion()" style="display: none;">Próxima Pergunta</button>
             </div>
         </div>
+    </div>
+
+    <div class="footer">
+        <p>Desenvolvido por <a href="https://www.linkedin.com/in/patricia--sousa" target="_blank">Patrícia Sousa</a></p>
     </div>
     
     <script>
