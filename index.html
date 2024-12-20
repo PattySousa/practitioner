@@ -32,6 +32,21 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(255,255,255,0.1);
         }
+
+          @media (max-width: 1024px) { /* Ajuste para tablets */
+            .container {
+                max-width: 90%;
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) { /* Ajuste para celulares */
+            .container {
+                max-width: 95%;
+                padding: 10px;
+            }
+        }
+
+        
         .welcome-screen {
             text-align: center;
         }
@@ -119,7 +134,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="imagem/Logo crazycloud.jpg" alt="Logo CrazyCloud" class="logo">
+            <img src="imagem/logo practitioner.png" alt="Logo Practitioner" class="logo">
             <h1>Simulado AWS Cloud Practitioner</h1>
             <span id="nameInstruction">Digite seu nome para começar</span>
         </div>
@@ -640,7 +655,558 @@
                 ],
                 correct: 0,
                 explanation: "CORRETO: Amazon API Gateway é especializado na criação e gerenciamento de APIs."
+            },
+            {
+                question: "Qual pilar do AWS CAF (Framework de Adoção da Nuvem) foca na automação e eficiência de operações?",
+                options: [
+                    "Operações",
+                    "Governança",
+                    "Plataforma",
+                    "Segurança"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O pilar Operações foca na automação e na eficiência operacional."
+             },
+             {
+                question: "Qual pilar do AWS CAF abrange políticas, conformidade e gerenciamento?",
+                options: [
+                    "Operações",
+                    "Governança",
+                    "Plataforma",
+                    "Segurança"
+                ],
+                correct: 1,
+                explanation: "CORRETO: Governança aborda políticas, conformidade e gestão."
+             },
+             {
+                question: "Qual pilar do AWS CAF é focado na criação de uma base técnica robusta?",
+                options: [
+                    "Plataforma",
+                    "Operações",
+                    "Governança",
+                    "Negócios"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Plataforma é focado em criar uma base técnica confiável."
+            },
+            {
+                question: "Qual pilar do AWS CAF foca em proteger dados, sistemas e ativos na nuvem?",
+                options: [
+                    "Segurança",
+                    "Plataforma",
+                    "Governança",
+                    "Operações"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Segurança é focado na proteção de dados, sistemas e ativos na nuvem."
+            },
+            {
+                question: "Qual pilar do AWS CAF ajuda a alinhar as metas de TI com os objetivos organizacionais?",
+                options: [
+                    "Negócios",
+                    "Governança",
+                    "Operações",
+                    "Segurança"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O pilar Negócios ajuda a alinhar as metas de TI com os objetivos organizacionais."
+            },
+            {
+                question: "Qual pilar do AWS CAF auxilia na transformação de equipes e na capacitação de profissionais?",
+                options: [
+                    "Pessoas",
+                    "Negócios",
+                    "Governança",
+                    "Plataforma"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Pessoas aborda a transformação de equipes e a capacitação dos profissionais."
+            },
+            {
+                question: "Qual pilar do AWS CAF apoia o gerenciamento do portfólio de TI e a priorização de iniciativas?",
+                options: [
+                    "Negócios",
+                    "Pessoas",
+                    "Governança",
+                    "Operações"
+                ],
+                correct: 2,
+                explanation: "CORRETO: Governança apoia o gerenciamento do portfólio de TI e a priorização de iniciativas."
+            },
+            {
+                question: "Qual pilar do AWS CAF incentiva a inovação e a experimentação contínua?",
+                options: [
+                    "Negócios",
+                    "Operações",
+                    "Pessoas",
+                    "Plataforma"
+                ],
+                correct: 3,
+                explanation: "CORRETO: Plataforma incentiva a inovação e a experimentação contínua."
+            },
+            {
+                question: "Qual pilar do AWS CAF ajuda a gerenciar riscos e atender às regulamentações?",
+                options: [
+                    "Segurança",
+                    "Governança",
+                    "Negócios",
+                    "Pessoas"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Segurança ajuda a gerenciar riscos e atender às regulamentações."
+            },
+            {
+                question: "Qual pilar do AWS CAF é fundamental para sustentar a jornada de transformação digital?",
+                options: [
+                    "Negócios",
+                    "Governança",
+                    "Pessoas",
+                    "Operações"
+                ],
+                correct: 2,
+                explanation: "CORRETO: Pessoas é fundamental para sustentar a jornada de transformação digital."
+            },
+            {
+                question: "Qual das opções não é um dos 6Rs da migração para a nuvem na AWS?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Refactoring (Refatorar)",
+                    "Rescaling (Redimensionar)"
+                ],
+                correct: 3,
+                explanation: "CORRETO: Rescaling (Redimensionar) não é um dos 6Rs; os 6Rs são Rehosting (Rehospedar), Replatforming (Replataformar), Refactoring (Refatorar), Repurchasing (Recomprar), Retaining (Manter) e Retiring (Aposentar)."
+            },
+            {
+                question: "Qual R do AWS Migration Strategy descreve a modernização completa da aplicação?",
+                options: [
+                    "Replatforming (Replataformar)",
+                    "Refactoring (Refatorar)",
+                    "Rehosting (Rehospedar)",
+                    "Retiring (Aposentar)"
+                ],
+                correct: 1,
+                explanation: "CORRETO: Refactoring (Refatorar) envolve a modernização completa para aproveitar as capacidades nativas da nuvem."
+            },
+            {
+                question: "Qual estratégia é conhecida como 'lift-and-shift'?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Repurchasing (Recomprar)",
+                    "Retaining (Manter)"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Rehosting (Rehospedar) é a abordagem de 'lift-and-shift', movendo a aplicação para a nuvem sem alterações significativas."
+            },
+            {
+                question: "Quando você decide substituir uma aplicação existente por uma SaaS, qual R você está usando?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Repurchasing (Recomprar)",
+                    "Retaining (Manter)"
+                ],
+                correct: 2,
+                explanation: "CORRETO: Repurchasing (Recomprar) envolve substituir a aplicação por uma solução SaaS."
+            },
+            {
+                question: "Qual R envolve fazer melhorias mínimas para otimizar o uso de recursos na nuvem?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Refactoring (Refatorar)",
+                    "Retiring (Aposentar)"
+                ],
+                correct: 1,
+                explanation: "CORRETO: Replatforming (Replataformar) consiste em fazer melhorias mínimas sem grandes mudanças estruturais."
+            },
+            {
+                question: "Qual R descreve a descontinuação de sistemas legados?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Retiring (Aposentar)",
+                    "Refactoring (Refatorar)"
+                ],
+                correct: 2,
+                explanation: "CORRETO: Retiring (Aposentar) significa descontinuar sistemas que não são mais necessários."
+            },
+            {
+                question: "Manter um sistema legado por motivos de compliance é um exemplo de qual R?",
+                options: [
+                    "Retiring (Aposentar)",
+                    "Rehosting (Rehospedar)",
+                    "Repurchasing (Recomprar)",
+                    "Retaining (Manter)"
+                ],
+                correct: 3,
+                explanation: "CORRETO: Retaining (Manter) refere-se a manter sistemas legados por motivos como compliance."
+            },
+            {
+                question: "Reescrever uma aplicação inteira para aproveitar serviços da AWS é um exemplo de qual R?",
+                options: [
+                    "Refactoring (Refatorar)",
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Repurchasing (Recomprar)"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Refactoring (Refatorar) envolve reescrever a aplicação para tirar proveito da arquitetura nativa da nuvem."
+            },
+            {
+                question: "Mover uma aplicação para EC2 com ajustes mínimos de configuração é qual R?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Repurchasing (Recomprar)",
+                    "Refactoring (Refatorar)"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Rehosting (Rehospedar) é o processo de mover uma aplicação para EC2 com ajustes mínimos."
+            },
+            {
+                question: "Qual estratégia é ideal para aplicativos com ciclos de vida curtos que não justificam modernização?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Retaining (Manter)",
+                    "Retiring (Aposentar)"
+                ],
+                correct: 3,
+                explanation: "CORRETO: Retiring (Aposentar) é apropriado para aplicativos com ciclos de vida curtos."
+            },
+            {
+                question: "Qual das opções não é um dos 6Rs da migração para a nuvem na AWS?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Refactoring (Refatorar)",
+                    "Rescaling (Redimensionar)"
+                ],
+                correct: 3,
+                explanation: "CORRETO: Rescaling (Redimensionar) não é um dos 6Rs; os 6Rs são Rehosting (Rehospedar), Replatforming (Replataformar), Refactoring (Refatorar), Repurchasing (Recomprar), Retaining (Manter) e Retiring (Aposentar)."
+            },
+            {
+                question: "Qual R do AWS Migration Strategy descreve a modernização completa da aplicação?",
+                options: [
+                    "Replatforming (Replataformar)",
+                    "Refactoring (Refatorar)",
+                    "Rehosting (Rehospedar)",
+                    "Retiring (Aposentar)"
+                ],
+                correct: 1,
+                explanation: "CORRETO: Refactoring (Refatorar) envolve a modernização completa para aproveitar as capacidades nativas da nuvem."
+            },
+            {
+                question: "Qual estratégia é conhecida como 'lift-and-shift'?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Repurchasing (Recomprar)",
+                    "Retaining (Manter)"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Rehosting (Rehospedar) é a abordagem de 'lift-and-shift', movendo a aplicação para a nuvem sem alterações significativas."
+            },
+            {
+                question: "Quando você decide substituir uma aplicação existente por uma SaaS, qual R você está usando?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Repurchasing (Recomprar)",
+                    "Retaining (Manter)"
+                ],
+                correct: 2,
+                explanation: "CORRETO: Repurchasing (Recomprar) envolve substituir a aplicação por uma solução SaaS."
+            },
+            {
+                question: "Qual R envolve fazer melhorias mínimas para otimizar o uso de recursos na nuvem?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Refactoring (Refatorar)",
+                    "Retiring (Aposentar)"
+                ],
+                correct: 1,
+                explanation: "CORRETO: Replatforming (Replataformar) consiste em fazer melhorias mínimas sem grandes mudanças estruturais."
+            },
+            {
+                question: "Qual R descreve a descontinuação de sistemas legados?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Retiring (Aposentar)",
+                    "Refactoring (Refatorar)"
+                ],
+                correct: 2,
+                explanation: "CORRETO: Retiring (Aposentar) significa descontinuar sistemas que não são mais necessários."
+            },
+            {
+                question: "Manter um sistema legado por motivos de compliance é um exemplo de qual R?",
+                options: [
+                    "Retiring (Aposentar)",
+                    "Rehosting (Rehospedar)",
+                    "Repurchasing (Recomprar)",
+                    "Retaining (Manter)"
+                ],
+                correct: 3,
+                explanation: "CORRETO: Retaining (Manter) refere-se a manter sistemas legados por motivos como compliance."
+            },
+            {
+                question: "Reescrever uma aplicação inteira para aproveitar serviços da AWS é um exemplo de qual R?",
+                options: [
+                    "Refactoring (Refatorar)",
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Repurchasing (Recomprar)"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Refactoring (Refatorar) envolve reescrever a aplicação para tirar proveito da arquitetura nativa da nuvem."
+            },
+            {
+                question: "Mover uma aplicação para EC2 com ajustes mínimos de configuração é qual R?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Repurchasing (Recomprar)",
+                    "Refactoring (Refatorar)"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Rehosting (Rehospedar) é o processo de mover uma aplicação para EC2 com ajustes mínimos."
+            },
+            {
+                question: "Qual estratégia é ideal para aplicativos com ciclos de vida curtos que não justificam modernização?",
+                options: [
+                    "Rehosting (Rehospedar)",
+                    "Replatforming (Replataformar)",
+                    "Retaining (Manter)",
+                    "Retiring (Aposentar)"
+                ],
+                correct: 3,
+                explanation: "CORRETO: Retiring (Aposentar) é apropriado para aplicativos com ciclos de vida curtos."
+            },
+            {
+                question: "Qual pilar do AWS Well-Architected Framework se concentra em proteger informações, sistemas e ativos?",
+                options: [
+                    "Segurança",
+                    "Confiabilidade",
+                    "Eficiência de desempenho",
+                    "Excelência operacional"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O pilar Segurança foca na proteção de informações, sistemas e ativos."
+            },
+            {
+                question: "Qual pilar do AWS Well-Architected Framework foca em como arquitetar para operar com sucesso?",
+                options: [
+                    "Excelência operacional",
+                    "Segurança",
+                    "Eficiência de desempenho",
+                    "Confiabilidade"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Excelência operacional trata de arquitetar para operações eficientes e bem-sucedidas."
+            },
+            {
+                question: "Qual pilar do AWS Well-Architected Framework aborda a capacidade do sistema de se recuperar de falhas?",
+                options: [
+                    "Confiabilidade",
+                    "Segurança",
+                    "Otimização de custos",
+                    "Eficiência de desempenho"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Confiabilidade abrange a capacidade de se recuperar de falhas e atender às demandas."
+            },
+            {
+                question: "Qual pilar do AWS Well-Architected Framework foca na entrega eficiente de valor usando recursos?",
+                options: [
+                    "Eficiência de desempenho",
+                    "Confiabilidade",
+                    "Excelência operacional",
+                    "Otimização de custos"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Eficiência de desempenho concentra-se no uso eficiente de recursos para entregar valor."
+            },
+            {
+                question: "Qual pilar do AWS Well-Architected Framework foca em evitar desperdícios financeiros?",
+                options: [
+                    "Otimização de custos",
+                    "Confiabilidade",
+                    "Segurança",
+                    "Eficiência de desempenho"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Otimização de custos trata de evitar desperdícios financeiros e gerenciar recursos com eficiência."
+            },
+            {
+                question: "Qual é o principal benefício do uso do AWS Well-Architected Framework?",
+                options: [
+                    "Identificar lacunas e melhorar a arquitetura de sistemas.",
+                    "Reduzir a latência para usuários finais.",
+                    "Garantir 100% de segurança contra ataques.",
+                    "Evitar completamente custos adicionais."
+                ],
+                correct: 0,
+                explanation: "CORRETO: O AWS Well-Architected Framework ajuda a identificar lacunas e melhorar a arquitetura."
+            },
+            {
+                question: "Qual pilar é responsável por garantir resiliência e continuidade de negócios?",
+                options: [
+                    "Confiabilidade",
+                    "Segurança",
+                    "Eficiência de desempenho",
+                    "Excelência operacional"
+                ],
+                correct: 0,
+                explanation: "CORRETO: Confiabilidade garante resiliência e continuidade de negócios."
+            },
+            {
+                question: "O que significa priorizar 'Automação' no pilar de Excelência Operacional?",
+                options: [
+                    "Automatizar tarefas repetitivas para melhorar a eficiência.",
+                    "Evitar qualquer intervenção manual.",
+                    "Confiar completamente na IA para tomada de decisões.",
+                    "Reduzir custos eliminando a necessidade de mão de obra."
+                ],
+                correct: 0,
+                explanation: "CORRETO: Priorizar automação ajuda a melhorar a eficiência e reduzir erros humanos."
+            },
+            {
+                question: "Como a 'Otimização de Custos' impacta as decisões de design na nuvem?",
+                options: [
+                    "Reduzindo custos enquanto mantém desempenho e funcionalidade.",
+                    "Eliminando serviços de alta performance.",
+                    "Usando apenas instâncias reservadas.",
+                    "Removendo backups e redundâncias para reduzir custos."
+                ],
+                correct: 0,
+                explanation: "CORRETO: Otimização de custos garante que o design equilibre desempenho, funcionalidade e custo."
+            },
+            {
+                question: "Qual prática é recomendada para melhorar o pilar de Segurança?",
+                options: [
+                    "Usar controles de acesso baseados em funções (IAM).",
+                    "Armazenar senhas em texto simples para fácil acesso.",
+                    "Evitar criptografia para economizar recursos.",
+                    "Confiar apenas na segurança física do data center."
+                ],
+                correct: 0,
+                explanation: "CORRETO: Usar IAM e criptografia ajuda a fortalecer o pilar de Segurança."
+            },
+            {
+                question: "No modelo de responsabilidade compartilhada, quem é responsável pela segurança física dos data centers?",
+                options: [
+                    "AWS",
+                    "Cliente",
+                    "Ambos",
+                    "Nenhum"
+                ],
+                correct: 0,
+                explanation: "CORRETO: A AWS é responsável pela segurança física dos data centers."
+            },
+            {
+                question: "Quem é responsável por gerenciar permissões de usuários no modelo de responsabilidade compartilhada?",
+                options: [
+                    "Cliente",
+                    "AWS",
+                    "Ambos",
+                    "Nenhum"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O cliente é responsável por gerenciar permissões de usuários."
+            },
+            {
+                question: "A configuração do firewall no nível da aplicação é de responsabilidade de quem?",
+                options: [
+                    "Cliente",
+                    "AWS",
+                    "Ambos",
+                    "Nenhum"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O cliente deve configurar firewalls no nível da aplicação."
+            },
+            {
+                question: "Quem é responsável por atualizar o sistema operacional de uma instância EC2?",
+                options: [
+                    "Cliente",
+                    "AWS",
+                    "Ambos",
+                    "Nenhum"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O cliente deve atualizar o sistema operacional das suas instâncias EC2."
+            },
+            {
+                question: "Quem gerencia a infraestrutura subjacente no modelo de responsabilidade compartilhada?",
+                options: [
+                    "AWS",
+                    "Cliente",
+                    "Ambos",
+                    "Nenhum"
+                ],
+                correct: 0,
+                explanation: "CORRETO: A AWS gerencia a infraestrutura subjacente."
+            },
+            {
+                question: "Quem é responsável por definir políticas de backup e recuperação?",
+                options: [
+                    "Cliente",
+                    "AWS",
+                    "Ambos",
+                    "Nenhum"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O cliente deve definir suas políticas de backup e recuperação."
+            },
+            {
+                question: "A segurança de criptografia no lado do cliente é responsabilidade de quem?",
+                options: [
+                    "Cliente",
+                    "AWS",
+                    "Ambos",
+                    "Nenhum"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O cliente deve garantir a criptografia do seu lado."
+            },
+            {
+                question: "Quem deve monitorar o uso de recursos em tempo real?",
+                options: [
+                    "Cliente",
+                    "AWS",
+                    "Ambos",
+                    "Nenhum"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O cliente deve monitorar o uso dos seus recursos em tempo real."
+            },
+            {
+                question: "A AWS é responsável por garantir que os aplicativos de terceiros sejam seguros?",
+                options: [
+                    "Cliente",
+                    "AWS",
+                    "Ambos",
+                    "Nenhum"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O cliente é responsável por garantir a segurança de aplicativos de terceiros."
+            },
+            {
+                question: "Quem gerencia a configuração de rede dentro de uma conta AWS?",
+                options: [
+                    "Cliente",
+                    "AWS",
+                    "Ambos",
+                    "Nenhum"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O cliente gerencia a configuração de rede dentro de sua conta AWS."
             }
+                
         ];
 
         function shuffleArray(array) {
@@ -819,6 +1385,14 @@
                 <p>Pontuação: ${score} de ${shuffledQuestions.length * 10}</p>
                 <p>Tempo total: ${document.getElementById("time").textContent}</p>
                 <button onclick="location.reload()" class="btn">Recomeçar</button>
+                <br><br>
+                <p style="text-align: center; font-size: 14px; color: yellow;">
+                Desenvolvido por Patrícia Sousa
+                </p>
+               <p style="text-align: center; font-size: 14px; color: yellow;">
+               <a href="https://www.linkedin.com/in/patricia-sousa" target="_blank" style="color: yellow; text-decoration: underline;">
+               </a>
+               </p>
             `;
         }
 
