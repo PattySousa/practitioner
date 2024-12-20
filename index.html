@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWS Cloud Practitioner Quiz</title>
     <style>
-        
+        /* Resetando estilos para garantir consistência */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        
+        /* Garantir que a fonte base seja consistente */
         html {
-            font-size: 16px; 
+            font-size: 16px; /* Define o tamanho base para 16px */
         }
 
         body {
@@ -23,7 +23,7 @@
             padding: 20px;
             background: black;
             color: yellow;
-            font-size: 1rem; 
+            font-size: 1rem; /* Usa rem para garantir tamanho consistente */
         }
 
         .header {
@@ -38,6 +38,13 @@
             width: 200px;
             height: auto;
             margin-bottom: 20px;
+        }
+
+        .name-display {
+            font-size: 18px;
+            font-weight: bold;
+            color: yellow;
+            margin-top: 10px;
         }
 
         .container {
@@ -85,13 +92,13 @@
 
         .question {
             margin-bottom: 20px;
-            font-size: 1.125rem; 
+            font-size: 1.125rem; /* Ajuste a fonte da pergunta */
         }
 
         .options {
             display: grid;
             gap: 10px;
-            font-size: 1rem; 
+            font-size: 1rem; /* Fonte consistente para opções */
         }
 
         .option {
@@ -102,7 +109,7 @@
             transition: background-color 0.3s;
             color: yellow;
             background: black;
-            font-size: 1rem; 
+            font-size: 1rem; /* Garante a mesma fonte para as opções */
         }
 
         .option:hover {
@@ -131,11 +138,11 @@
             display: none;
             color: yellow;
             background-color: #1e90ff30; 
-            font-size: 1rem; 
+            font-size: 1rem; /* Consistente com o restante do texto */
         }
 
         .timer {
-            font-size: 1.25rem; 
+            font-size: 1.25rem; /* Ajustando o timer */
             text-align: center;
             margin: 10px 0;
         }
@@ -153,7 +160,7 @@
             cursor: pointer;
             background-color: black;
             color: yellow;
-            font-size: 1rem; 
+            font-size: 1rem; /* Garantindo que o botão tenha o mesmo tamanho de fonte */
             width: 100%; 
         }
 
@@ -198,8 +205,7 @@
     <div class="container">
         <div class="header">
             <img src="imagem/logo practitioner.png" alt="Logo Practitioner" class="logo">
-            <h1>Simulado AWS Cloud Practitioner</h1>
-            <span id="nameInstruction">Digite seu nome para começar</span>
+            <span class="name-display">Patrícia Sousa</span>
         </div>
 
         <div class="welcome-screen">
@@ -222,7 +228,7 @@
     </div>
 
     <div class="footer">
-        <p>Desenvolvido por <a href="https://www.linkedin.com/in/patricia--sousa" target="_blank">Patrícia Sousa</a></p>
+        <p>Desenvolvido por <a href="https://www.linkedin.com/in/patricia-sousa" target="_blank">Patrícia Sousa</a></p>
     </div>
     
     <script>
