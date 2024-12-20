@@ -1356,12 +1356,11 @@ function startQuiz() {
                 return;
             }
             
-            // Hide the name instruction
             document.getElementById("nameInstruction").style.display = "none";
-            
             shuffleQuestions();
             document.querySelector(".welcome-screen").style.display = "none";
             document.querySelector(".quiz-container").style.display = "block";
+            resetTimer();
             startTimer();
             showQuestion();
         }
@@ -1377,6 +1376,12 @@ function startQuiz() {
                         `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
                 }
             }, 1000);
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            seconds = 0;
+            document.getElementById("time").textContent = "00:00:00";
         }
 
         function showQuestion() {
@@ -1400,9 +1405,11 @@ function startQuiz() {
             // Shuffle options
             optionsWithStatus = shuffleArray(optionsWithStatus);
             
-            // Update correct answer index based on new position
+            
             if (!questionData.multiSelect) {
-                questionData.correct = optionsWithStatus.findIndex(opt => opt.isCorrect);
+                questionData.correct = optionsWithStatus
+                    .map((opt, idx) => opt.isCorrect ? idx : -1)
+                    .filter(idx => idx !== -1);              
             } else {
                 questionData.correct = optionsWithStatus
                     .map((opt, idx) => opt.isCorrect ? idx : -1)
@@ -1425,13 +1432,11 @@ function startQuiz() {
             
             if (questionData.multiSelect) {
                 const selectedOption = options[optionIndex];
-                if (selectedOption.classList.contains("selected")) {
-                    selectedOption.classList.remove("selected");
-                } else {
-                    const selectedCount = document.querySelectorAll(".option.selected").length;
-                    if (selectedCount < 2) {
-                        selectedOption.classList.add("selected");
-                    }
+              
+            if (selectedCount >= 2 && !selectedOption.classList.contains("selected")) {
+                return; 
+                }
+                    
                 }
                 
                 if (document.querySelectorAll(".option.selected").length === 2) {
@@ -1462,7 +1467,7 @@ function startQuiz() {
                     
                     document.querySelector(".next-button").style.display = "block";
                 }
-            } else {
+                } else {
                 options.forEach(option => {
                     option.classList.remove("selected", "correct", "incorrect");
                     option.onclick = null;
@@ -1496,23 +1501,41 @@ function startQuiz() {
             }
         }
 
-        function endQuiz() {
+       function endQuiz() {
             clearInterval(timer);
-            const container = document.querySelector(".quiz-container");
-            container.innerHTML = `
+            let feedbackMessage = score > 80 ? "Excelente!" : score > 50 ? "Bom trabalho!" : "Continue praticando, você conseguirá!";
+            document.querySelector(".quiz-container").innerHTML = `
                 <h2>Parabéns, ${userName}!</h2>
-                <p>Você completou o quiz!</p>
+                <p>${feedbackMessage}</p>
                 <p>Pontuação: ${score} de ${shuffledQuestions.length * 10}</p>
                 <p>Tempo total: ${document.getElementById("time").textContent}</p>
-                <button onclick="location.reload()" class="btn">Recomeçar</button>
-              
-           `;
+                <button onclick="restartQuiz()" class="btn">Recomeçar</button>
+            `;
         }
+
 
         document.getElementById("pauseTimer").addEventListener("click", function() {
             timerPaused = !timerPaused;
             this.textContent = timerPaused ? "Continuar" : "Pausar";
         });
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            resetTimer();
+            document.querySelector(".quiz-container").innerHTML = "";
+            document.querySelector(".welcome-screen").style.display = "block";
+        }
+
+        function validateQuestion(question) {
+            if (!question.question || !question.options || question.correct === undefined) {
+            console.error("Questão inválida:", question);
+            return false;
+        }
+            return true;
+        }
+
+
 
         /* Desenvolvido por Patrícia Sousa */ 
     </script>
