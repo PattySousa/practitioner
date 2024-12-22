@@ -217,15 +217,15 @@
     <script>
         const questions = [
             {
-                question: "Qual serviço da AWS permite o gerenciamento automático de patches e atualizações de segurança em instâncias EC2?",
+                question: "Qual serviço da AWS permite detectar e proteger contra atividades maliciosas usando monitoramento contínuo?",
                 options: [
-                    "AWS Systems Manager",
-                    "AWS Config",
-                    "AWS CloudWatch",
-                    "AWS Inspector"
+                    "AWS GuardDuty",
+                    "AWS Shield Advanced",
+                    "AWS Inspector",
+                    "AWS Detective"
                 ],
                 correct: 0,
-                explanation: "CORRETO: O AWS Systems Manager fornece recursos de gerenciamento de patches e automação para manter a conformidade de segurança em instâncias EC2."
+                explanation: "CORRETO: O AWS GuardDuty é um serviço de detecção de ameaças que monitora continuamente atividades maliciosas e fornece alertas."
             },
             {
                 question: "Qual serviço da AWS permite o gerenciamento automático de patches e atualizações de segurança em instâncias EC2?",
@@ -559,7 +559,7 @@
                 explanation: "CORRETO: AWS WAF é um firewall de aplicações web que ajuda a proteger suas aplicações contra ataques web comuns."
             },
             {
-                question: "Qual serviço é usado para enviar notificações por email na AWS?",
+                question: "Qual serviço é usado para enviar notificações por email em massa na AWS?",
                 options: [
                     "Amazon SES",
                     "Amazon SNS",
@@ -823,114 +823,180 @@
                 explanation: "CORRETO: Pessoas é fundamental para sustentar a jornada de transformação digital."
             },
             {
-                question: "Qual das opções não é um dos 6Rs da migração para a nuvem na AWS?",
-                options: [
-                    "Rehosting (Rehospedar)",
-                    "Replatforming (Replataformar)",
-                    "Refactoring (Refatorar)",
-                    "Rescaling (Redimensionar)"
+    question: "Qual serviço da AWS ajuda na implementação de governança e segurança em um ambiente multi-conta?",
+    options: [
+        "AWS Shield Advanced",
+        "AWS Control Tower",
+        "AWS Resource Access Manager",
+        "AWS Inspector"
                 ],
-                correct: 3,
-                explanation: "CORRETO: Rescaling (Redimensionar) não é um dos 6Rs; os 6Rs são Rehosting (Rehospedar), Replatforming (Replataformar), Refactoring (Refatorar), Repurchasing (Recomprar), Retaining (Manter) e Retiring (Aposentar)."
+    correct: 1,
+    explanation: "CORRETO: O AWS Control Tower facilita a criação e governança de um ambiente multi-conta seguro."
             },
             {
-                question: "Qual R do AWS Migration Strategy descreve a modernização completa da aplicação?",
+                question: "Qual serviço da AWS oferece proteção contra ataques DDoS em nível avançado?",
                 options: [
-                    "Replatforming (Replataformar)",
-                    "Refactoring (Refatorar)",
-                    "Rehosting (Rehospedar)",
-                    "Retiring (Aposentar)"
+                    "AWS Shield Advanced",
+                    "AWS GuardDuty",
+                    "AWS Detective",
+                    "AWS Config"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O AWS Shield Advanced fornece proteção avançada contra ataques DDoS, incluindo mitigação e resposta."
+            },
+            {
+                question: "Qual recurso da AWS permite compartilhar recursos com segurança entre contas?",
+                options: [
+                    "AWS Config",
+                    "AWS Resource Access Manager (RAM)",
+                    "AWS Control Tower",
+                    "AWS Identity Center"
                 ],
                 correct: 1,
-                explanation: "CORRETO: Refactoring (Refatorar) envolve a modernização completa para aproveitar as capacidades nativas da nuvem."
+                explanation: "CORRETO: O AWS Resource Access Manager (RAM) permite compartilhar recursos entre contas de forma segura e eficiente."
             },
             {
-                question: "Qual estratégia é conhecida como 'lift-and-shift'?",
+                question: "Qual serviço da AWS realiza varreduras automatizadas de vulnerabilidades em instâncias EC2?",
                 options: [
-                    "Rehosting (Rehospedar)",
-                    "Replatforming (Replataformar)",
-                    "Repurchasing (Recomprar)",
-                    "Retaining (Manter)"
+                    "AWS Inspector",
+                    "AWS Detective",
+                    "AWS GuardDuty",
+                    "AWS Config"
                 ],
                 correct: 0,
-                explanation: "CORRETO: Rehosting (Rehospedar) é a abordagem de 'lift-and-shift', movendo a aplicação para a nuvem sem alterações significativas."
+                explanation: "CORRETO: O AWS Inspector avalia vulnerabilidades e garante conformidade em instâncias EC2."
             },
             {
-                question: "Quando você decide substituir uma aplicação existente por uma SaaS, qual R você está usando?",
+                question: "Qual serviço ajuda a investigar atividades suspeitas usando dados de logs na AWS?",
                 options: [
-                    "Rehosting (Rehospedar)",
-                    "Replatforming (Replataformar)",
-                    "Repurchasing (Recomprar)",
-                    "Retaining (Manter)"
-                ],
-                correct: 2,
-                explanation: "CORRETO: Repurchasing (Recomprar) envolve substituir a aplicação por uma solução SaaS."
-            },
-            {
-                question: "Qual R envolve fazer melhorias mínimas para otimizar o uso de recursos na nuvem?",
-                options: [
-                    "Rehosting (Rehospedar)",
-                    "Replatforming (Replataformar)",
-                    "Refactoring (Refatorar)",
-                    "Retiring (Aposentar)"
+                    "AWS GuardDuty",
+                    "AWS Detective",
+                    "AWS Inspector",
+                    "AWS Shield Advanced"
                 ],
                 correct: 1,
-                explanation: "CORRETO: Replatforming (Replataformar) consiste em fazer melhorias mínimas sem grandes mudanças estruturais."
+                explanation: "CORRETO: O AWS Detective auxilia na investigação de atividades suspeitas com base em dados de logs e eventos."
             },
             {
-                question: "Qual R descreve a descontinuação de sistemas legados?",
+                question: "Qual banco de dados gerenciado da AWS é otimizado para cargas de trabalho relacionais distribuídas?",
                 options: [
-                    "Rehosting (Rehospedar)",
-                    "Replatforming (Replataformar)",
-                    "Retiring (Aposentar)",
-                    "Refactoring (Refatorar)"
+                    "Amazon Aurora",
+                    "Amazon DynamoDB",
+                    "Amazon Neptune",
+                    "Amazon Redshift"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O Amazon Aurora é um banco de dados relacional altamente escalável e otimizado para desempenho."
+            },
+            {
+                question: "Qual banco de dados da AWS é ideal para aplicações NoSQL com latência baixa e alta escalabilidade?",
+                options: [
+                    "Amazon Aurora",
+                    "Amazon Neptune",
+                    "Amazon DynamoDB",
+                    "Amazon RDS"
                 ],
                 correct: 2,
-                explanation: "CORRETO: Retiring (Aposentar) significa descontinuar sistemas que não são mais necessários."
+                explanation: "CORRETO: O Amazon DynamoDB é ideal para aplicações NoSQL que exigem baixa latência e alta escalabilidade."
             },
             {
-                question: "Manter um sistema legado por motivos de compliance é um exemplo de qual R?",
+                question: "Qual serviço da AWS é projetado para criar e gerenciar grafos de relacionamento entre dados?",
                 options: [
-                    "Retiring (Aposentar)",
-                    "Rehosting (Rehospedar)",
-                    "Repurchasing (Recomprar)",
-                    "Retaining (Manter)"
-                ],
-                correct: 3,
-                explanation: "CORRETO: Retaining (Manter) refere-se a manter sistemas legados por motivos como compliance."
-            },
-            {
-                question: "Reescrever uma aplicação inteira para aproveitar serviços da AWS é um exemplo de qual R?",
-                options: [
-                    "Refactoring (Refatorar)",
-                    "Rehosting (Rehospedar)",
-                    "Replatforming (Replataformar)",
-                    "Repurchasing (Recomprar)"
+                    "Amazon Neptune",
+                    "Amazon DynamoDB",
+                    "Amazon Aurora",
+                    "Amazon RDS"
                 ],
                 correct: 0,
-                explanation: "CORRETO: Refactoring (Refatorar) envolve reescrever a aplicação para tirar proveito da arquitetura nativa da nuvem."
+                explanation: "CORRETO: O Amazon Neptune é um banco de dados gráfico ideal para aplicações baseadas em relacionamentos complexos."
             },
             {
-                question: "Mover uma aplicação para EC2 com ajustes mínimos de configuração é qual R?",
+                question: "Qual serviço da AWS permite criar sistemas de busca inteligente em grandes volumes de documentos?",
                 options: [
-                    "Rehosting (Rehospedar)",
-                    "Replatforming (Replataformar)",
-                    "Repurchasing (Recomprar)",
-                    "Refactoring (Refatorar)"
+                    "Amazon Comprehend",
+                    "Amazon Kendra",
+                    "Amazon Polly",
+                    "Amazon Translate"
+                ],
+                correct: 1,
+                explanation: "CORRETO: O Amazon Kendra é projetado para criar sistemas de busca inteligente com aprendizado de máquina."
+            },
+            {
+                question: "Qual serviço converte texto em fala usando inteligência artificial?",
+                options: [
+                    "Amazon Polly",
+                    "Amazon Translate",
+                    "Amazon Transcribe",
+                    "Amazon Comprehend"
                 ],
                 correct: 0,
-                explanation: "CORRETO: Rehosting (Rehospedar) é o processo de mover uma aplicação para EC2 com ajustes mínimos."
+                explanation: "CORRETO: O Amazon Polly converte texto em fala natural usando tecnologia de inteligência artificial."
             },
             {
-                question: "Qual estratégia é ideal para aplicativos com ciclos de vida curtos que não justificam modernização?",
+                question: "Qual serviço da AWS extrai texto e dados estruturados de documentos digitalizados?",
                 options: [
-                    "Rehosting (Rehospedar)",
-                    "Replatforming (Replataformar)",
-                    "Retaining (Manter)",
-                    "Retiring (Aposentar)"
+                    "Amazon Textract",
+                    "Amazon Polly",
+                    "Amazon Translate",
+                    "Amazon SageMaker"
                 ],
-                correct: 3,
-                explanation: "CORRETO: Retiring (Aposentar) é apropriado para aplicativos com ciclos de vida curtos."
+                correct: 0,
+                explanation: "CORRETO: O Amazon Textract extrai texto e informações estruturadas de documentos digitalizados."
+            },
+            {
+                question: "Qual serviço traduz automaticamente texto entre idiomas?",
+                options: [
+                    "Amazon Translate",
+                    "Amazon Polly",
+                    "Amazon Transcribe",
+                    "Amazon Kendra"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O Amazon Translate realiza tradução automática de texto entre diferentes idiomas."
+            },
+            {
+                question: "Qual serviço converte arquivos de áudio em texto automaticamente?",
+                options: [
+                    "Amazon Transcribe",
+                    "Amazon Translate",
+                    "Amazon Polly",
+                    "Amazon Comprehend"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O Amazon Transcribe converte arquivos de áudio em texto usando inteligência artificial."
+            },
+            {
+                question: "Qual serviço analisa textos para identificar sentimentos e categorias?",
+                options: [
+                    "Amazon Comprehend",
+                    "Amazon Translate",
+                    "Amazon Polly",
+                    "Amazon Kendra"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O Amazon Comprehend usa aprendizado de máquina para análise de sentimentos e categorização de textos."
+            },
+            {
+                question: "Qual serviço ajuda a personalizar recomendações em tempo real com aprendizado de máquina?",
+                options: [
+                    "Amazon Personalize",
+                    "Amazon SageMaker",
+                    "Amazon Comprehend",
+                    "Amazon DynamoDB"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O Amazon Personalize permite criar recomendações personalizadas em tempo real."
+            },
+            {
+                question: "Qual serviço permite desenvolver, treinar e implantar modelos de aprendizado de máquina?",
+                options: [
+                    "Amazon SageMaker",
+                    "Amazon Personalize",
+                    "Amazon Comprehend",
+                    "Amazon Translate"
+                ],
+                correct: 0,
+                explanation: "CORRETO: O Amazon SageMaker é uma plataforma completa para criar e gerenciar modelos de aprendizado de máquina."
             },
             {
                 question: "Qual das opções não é um dos 6Rs da migração para a nuvem na AWS?",
