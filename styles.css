@@ -1,0 +1,170 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #FFD700;
+  margin: 0; padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #FF9900;
+}
+
+.credit {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.credit a {
+  color: #e25555;
+  text-decoration: none;
+}
+
+.copyright {
+   color: #c8e255;
+   font-size: 12px;
+}
+
+
+
+.welcome-screen {
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+.quiz-container {
+  display: none;
+  margin-top: 20px;
+}
+
+.question {
+  margin-bottom: 18px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.option {
+  border: 1px solid #FFD700;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  background: #000;
+  transition: background-color 0.3s;
+}
+
+.option:hover {
+  background-color: #333;
+}
+
+.correct {
+  background-color: #006400;
+  color: white;
+  border: 2px solid #FFD700;
+}
+
+.incorrect {
+  background-color: #8b0000;
+  color: white;
+  border: 2px solid #FFD700;
+}
+
+.selected {
+  border: 2px solid #FFD700;
+  background-color: #444;
+}
+
+.feedback {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  background: rgba(30, 144, 255, 0.3);
+  color: #FFD700;
+  display: none;
+}
+
+.name-instruction {
+  color: white;
+}
+
+
+.timer {
+  font-size: 1.2em;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 4px;
+  border: 1px solid #FFD700;
+  background: #000;
+  color: #FFD700;
+  cursor: pointer;
+  font-size: 1em;
+  min-width: 150px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+input[type="text"] {
+  width: 80%;
+  max-width: 400px;
+  font-size: 1em;
+  padding: 10px;
+  margin: 12px 0;
+  border-radius: 4px;
+  border: 1px solid #FFD700;
+  background: #000;
+  color: #FFD700;
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 97vw;
+    padding: 8px 20px 8px 8px; 
+    border-radius: 5px;
+    margin: 8px auto;
+  }
+  .header h1 {
+    font-size: 1.3em;
+  }
+  .options {
+    grid-template-columns: 1fr;
+  }
+  .btn, .option {
+    font-size: 0.95em;
+    padding: 10px;
+  }
+  input[type="text"] {
+    font-size: 1em;
+    padding: 8px;
+  }
+}
