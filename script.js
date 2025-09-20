@@ -708,19 +708,45 @@ function nextQuestion() {
 }
 
 function endQuiz() {
-  clearInterval(timer);
-  const totalPoints = shuffledQuestions.length * 10;
-  const percent = ((score / totalPoints) * 100).toFixed(2);
+    clearInterval(timer);
 
-  const container = document.querySelector(".quiz-container");
-  container.innerHTML = `
-    <h2>Parabéns, ${userName}!</h2>
-    <p>Você completou o quiz!</p>
-    <p>Pontuação: ${score} de ${totalPoints} (${percent}%)</p>
-    <p>Tempo total: ${document.getElementById("time").textContent}</p>
-    <button onclick="location.reload()" class="btn">Recomeçar</button>
-  `;
+    const totalPoints = shuffledQuestions.length * 10;
+    const percent = ((score / totalPoints) * 100).toFixed(2);
+    const container = document.querySelector(".quiz-container");
+    container.innerHTML = `
+        <h2>Parabéns, ${userName}!</h2>
+        <p>Você completou o quiz!</p>
+        <p>Pontuação: ${score} de ${totalPoints} (${percent}%)</p>
+        <p>Tempo total: ${document.getElementById("time").textContent}</p>
+        <button onclick="location.reload()" class="btn">Recomeçar</button>
+    `;
+
+    // Chamada para salvar resultado no backend Flask
+    enviarResultado(userName, Number(percent));
 }
+
+// Função para enviar o resultado e obter a mensagem do backend
+function enviarResultado(nomeUsuario, novoPercentual) {
+    fetch('http://localhost:5000/api/salvar_percentual', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ usuario: nomeUsuario, percentual: novoPercentual })
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log('Percentual salvo:', data);
+        // Após salvar, solicitar mensagem de progresso
+        return fetch(`http://localhost:5000/api/progresso?usuario=${encodeURIComponent(nomeUsuario)}`);
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.mensagem); // Mensagem de apoio/comemoração do backend
+    })
+    .catch(err => {
+        console.error('Erro ao acessar backend:', err);
+    });
+}
+
 
 document.getElementById("pauseTimer").addEventListener("click", () => {
   timerPaused = !timerPaused;
